@@ -17,17 +17,17 @@ def crea_baraja ():
 def mezclar_baraja (baraja):
     br = []
     i = 0
-    while i < 40:
-        n = random.randint(0,39)
+
+    while len(baraja) != len (br):        
+        n = random.randint(0,len(baraja)-1)
         while baraja[n] in br:
-            n = random.randint(0,39)
-        br.append (baraja[n])
-        i += 1
+            n = random.randint(0,len(baraja)-1)
+        br.append (baraja[n])       
 
-    b = br
-    return b  
+    baraja[:] = br
+    return baraja 
 
-def repartir (b, jugadores, cartas):
+def repartir (b, jugadores, cartas): # Funcion para repartir una cantidad de baraja segun cantidad de jugadores
     res = []
     for p in range (jugadores):
         res.append([])
@@ -37,3 +37,8 @@ def repartir (b, jugadores, cartas):
             res[ij].append(carta)
     return res   
     
+def invertir (b): # Funcion para invertir las listas
+    for i in range (len(b)//2):
+        aux = b [i]
+        b [i] = b [-1-i]
+        b [-1-i] = aux
