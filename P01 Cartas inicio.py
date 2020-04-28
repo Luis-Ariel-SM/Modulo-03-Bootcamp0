@@ -1,11 +1,7 @@
-palos = ('O','C','E','B')
-cartas = ('A','2','3','4','5','6','7','S','C','R')
+import P01_ModuloCartas
 
-baraja = []
+b1 = (P01_ModuloCartas.crea_baraja())
+b2 = (P01_ModuloCartas.crea_baraja())
 
-for palo in palos:
-    for carta in cartas:
-        naipe = carta + palo
-        baraja.append (naipe)
-
-print (baraja)
+print (b1)
+print (b2)
